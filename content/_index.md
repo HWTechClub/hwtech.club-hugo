@@ -35,5 +35,7 @@ stats:
     - name: Insane People
       number : 10
 
-
+#Blog-section
+blog_description: > 
+    "The blogs is our simple way to say express yourself and what you feel about a certain concept."
 ---

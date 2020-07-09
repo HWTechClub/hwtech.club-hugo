@@ -1,3 +1,6 @@
+<!-- Uses the header.html in the partial folder
+    Therfore we dont need to rewrite the header
+    everytime we make new html file -->
 {{ partial "header.html" .}}
 
 <!-- home
@@ -20,6 +23,7 @@
                 <div class="main">
                     <h1 class="aqua"></h1>
                     <div class="line"></div>
+
                     <p class="headgreen">{{.Params.quote}}</p>
                 </div>
             </div>
@@ -47,6 +51,8 @@
 
 
     <ul class="home-social">
+     <!-- Creates the social links  -->
+     <!-- Uses the "social_links" variable to create the icons -->
         {{ range .Params.social_links }}
             <li>
                 <a href="{{.link}}"><i class="fa fa-{{lower .name}}"
@@ -65,7 +71,9 @@
 
     <div class="row section-header has-bottom-sep" data-aos="fade-up">
         <div class="col-full">
-            <!-- <h1 class="display-1 display-1--light">Welcome to <br> HW Tech Club Website</h1> -->
+            <!-- Uses the about_title variable from the /content/_index.md.
+                safeHTML allows the variable to include html tags
+             -->
             <h1 class="display-1 display-1--light">{{ with .Params.about_title }}{{ . | safeHTML }}{{ end }}</h1>
         </div>
     </div> <!-- end section-header -->
@@ -79,6 +87,7 @@
     </div> <!-- end about-desc -->
 
     <div class="row about-stats stats block-1-4 block-m-1-2 block-mob-full" data-aos="fade-up">
+        <!-- Creates the stats to display -->
         {{ range .Params.stats }}
             <div class="col-block stats__col ">
                 <div class="stats__count">{{.number}}</div>
@@ -159,7 +168,7 @@
         <div class="row about-desc" data-aos="fade-up">
             <div class="col-full">
                 <p>
-                    The blogs is our simple way to say express yourself and what you feel about a certain concept.
+                    {{ .Params.blog_description}}
                 </p>
                 <a href="https://blog.hwtech.club" class="btn " style="background: black; color: #e8990a;border-top-color: #e8990a;border-right-color: rgb(197, 197, 197);border-bottom-color: #e8990a;border-left-color: rgb(197, 197, 197);"> View Blogs </a>
             </div>
