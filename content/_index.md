@@ -4,6 +4,23 @@ document_title: HW Tech Club
 #Front Page title and qoute
 title : Welcome to HW Tech Club!
 quote: "“The future belongs to those who beleive in the beauty of their dreams”"
+
+#Nav elements
+# name = Name to be displayed
+# link = Link to be redirected
+# isCurrent = only add when the nav element is the linked to the current page
+nav_links:
+    - name : Home
+      link : /#home
+      isCurrent : true
+    - name : About
+      link : /#about
+    - name : Blogs
+      link : /#blogs
+    - name : Join Us
+      link : /#contact
+
+
 # Social links rendered on the front page on the right
 # To add a social link
 #   - add the name to be displayed
@@ -38,4 +55,5 @@ stats:
 #Blog-section
 blog_description: > 
     "The blogs is our simple way to say express yourself and what you feel about a certain concept."
+
 ---
