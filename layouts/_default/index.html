@@ -1,89 +1,4 @@
-<!DOCTYPE html>
-<!-- Is the below additional comments required ?? -->
-<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
-
-<!-- Head starts -->
-<head>
-
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title> Hw tech club</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="/stylesheets/base.css">
-    <link rel="stylesheet" href="/stylesheets/vendor.css">
-    <link rel="stylesheet" href="/stylesheets/main.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-
-
-    <!-- script
-    ================================================== -->
-    <script src="/javascripts/modernizr.js"></script>
-    <script src="/javascripts/pace.min.js"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="/images/output-onlinepngtools.png" type="image/x-icon">
-    <link rel="icon" href="/images/output-onlinepngtools.png" type="image/x-icon">
-
-</head>
-<!-- Head ends -->
-
-<body id="top">
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
-
-        <div class="header-logo">
-            <a href="/">
-                <img class="site-logo" src="/images/output-onlinepngtools.png">
-            </a>
-        </div>
-
-        <nav class="header-nav">
-
-            <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
-
-            <div class="header-nav__content">
-                <h3>Navigation</h3>
-
-                <ul class="header-nav__list">
-                    <li class="current"><a class="smoothscroll"  href="/#home" title="home">Home</a></li>
-                    <li><a class="smoothscroll"  href="/#about" title="about">About</a></li>
-                    <li><a class="smoothscroll"  href="/#blogs" title="blogs">Blogs</a></li>
-                    <!--<li><a class="smoothscroll"  href="/#events" title="events">Events</a></li>-->
-                    <li><a class="smoothscroll"  href="/#contact" title="works">Join Us</a></li>
-                </ul>
-
-
-                <!--<ul class="header-nav__social">
-                    <li>
-                        <a href="https://www.instagram.com/hwtechclub/?hl=en"><i class="fa fa-instagram"></i></a>
-                    </li>
-                </ul>-->
-
-            </div> <!-- end header-nav__content -->
-
-        </nav>  <!-- end header-nav -->
-
-        <a class="header-menu-toggle" href="#0">
-            <span class="header-menu-text">Nav</span>
-            <span class="header-menu-icon"></span>
-        </a>
-
-    </header> <!-- end s-header -->
+{{ partial "header.html" .}}
 
 <!-- home
     ================================================== -->
@@ -99,13 +14,13 @@
 
         <div class="row home-content__main">
 
-            <h3 class="headgreen">Welcome to HW Tech Club!</h3>
+            <h3 class="headgreen">{{.Title}}</h3>
 
             <div class="middle-header">
                 <div class="main">
                     <h1 class="aqua"></h1>
                     <div class="line"></div>
-                    <p class="headgreen">“The future belongs to those who beleive in the beauty of their dreams”</p>
+                    <p class="headgreen">{{.Params.quote}}</p>
                 </div>
             </div>
 
@@ -132,18 +47,12 @@
 
 
     <ul class="home-social">
-        <li>
-            <a href="https://www.instagram.com/hwtechclub/?hl=en"><i class="fa fa-instagram"
-                    aria-hidden="true"></i><span>Instagram</span></a>
-        </li>
-        <li>
-            <a href="https://github.com/HwTechClub"><i class="fa fa-github"
-                    aria-hidden="true"></i><span>github</span></a>
-        </li>
-        <li>
-            <a href="https://linkedin.com/company/hw-tech-club"><i class="fa fa-linkedin"
-                    aria-hidden="true"></i><span>Linkedin</span></a>
-        </li>
+        {{ range .Params.social_links }}
+            <li>
+                <a href="{{.link}}"><i class="fa fa-{{lower .name}}"
+                        aria-hidden="true"></i><span>{{.name}}</span></a>
+            </li>
+        {{end}}
     </ul>
     <!-- end home-social -->
 
@@ -156,40 +65,26 @@
 
     <div class="row section-header has-bottom-sep" data-aos="fade-up">
         <div class="col-full">
-            <h1 class="display-1 display-1--light">Welcome to <br> HW Tech Club Website</h1>
+            <!-- <h1 class="display-1 display-1--light">Welcome to <br> HW Tech Club Website</h1> -->
+            <h1 class="display-1 display-1--light">{{ with .Params.about_title }}{{ . | safeHTML }}{{ end }}</h1>
         </div>
     </div> <!-- end section-header -->
 
     <div class="row about-desc" data-aos="fade-up">
         <div class="col-full">
             <p>
-                "There is an art to science and science in art; the two are not
-                enemies. but different aspects of the whole." Issac Asimov.We focus on creating
-                innovative ideas/products.
+                {{ .Params.about_description}}
             </p>
         </div>
     </div> <!-- end about-desc -->
 
     <div class="row about-stats stats block-1-4 block-m-1-2 block-mob-full" data-aos="fade-up">
-
-        <div class="col-block stats__col ">
-            <div class="stats__count">107</div>
-            <h5>Members</h5>
-        </div>
-        <div class="col-block stats__col">
-            <div class="stats__count">25</div>
-            <h5>Covid-19 Volunteers</h5>
-        </div>
-        <div class="col-block stats__col">
-            <div class="stats__count">2</div>
-            <h5>Projects underway</h5>
-        </div>
-
-        <div class="col-block stats__col">
-            <div class="stats__count">10</div>
-            <h5>Insane people</h5>
-        </div>
-
+        {{ range .Params.stats }}
+            <div class="col-block stats__col ">
+                <div class="stats__count">{{.number}}</div>
+                <h5>{{.name}}</h5>
+            </div>
+        {{end}}
     </div> <!-- end about-stats -->
 
     <div class="about__line"></div>
@@ -248,11 +143,9 @@
 
 
     </div> <!-- end services-list -->
+    
 
 </section> <!-- end s-services -->
-
-
-
 <!-- events
     ================================================== -->
     <section id='blogs' class="s-about" data-parallax="scroll" style="background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('https://c4.wallpaperflare.com/wallpaper/57/715/636/technology-black-background-wallpaper-preview.jpg'); background-repeat: no-repeat;
@@ -509,15 +402,4 @@ background-size: cover;">
 </div>
 
 <!-- Footer starts -->
-<!-- <footer>
-    Footer here
-</footer> -->
-<!-- Footer ends -->
-<!-- Java Script
-================================================== -->
-<script src="/javascripts/jquery-3.2.1.min.js"></script>
-<script src="/javascripts/plugins.js"></script>
-<script src="/javascripts/main.js"></script>
-
-</body>
-</html>
+{{ partial "footer" .}}
