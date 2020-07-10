@@ -23,6 +23,7 @@ nav_links:
 
 # Social links rendered on the front page on the right
 # To add a social link
+
 #   - add the name to be displayed
 #   - add link to be redirected to
 # Note: The name is used to identify the icon for the link
@@ -53,7 +54,25 @@ stats:
       number : 10
 
 #Blog-section
-blog_description: > 
+blog_description: >
     "The blogs is our simple way to say express yourself and what you feel about a certain concept."
 
+# event section
+event_description: >
+    "Stay in touch with events from Tech Club , MACS (Mathematics and Computer Sciences)"
+
+
+#service section
+hardware_description: >
+      "Incharge of intergrating various physical layer based on project requirements."
+
+h_name: "Hardware Team"
+
+design_description: "Major focus on UI/UX design and also a major focus on industrial design."
+
+d_name: "Design Team"
+
+backend_description: "Focus on automating the solutions for some on the most important problems."
+
+b_name: "Automation/Back-end Team"
 ---
