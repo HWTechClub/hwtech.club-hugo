@@ -61,18 +61,28 @@ blog_description: >
 event_description: >
     "Stay in touch with events from Tech Club , MACS (Mathematics and Computer Sciences)"
 
+service:
+- service_name: Hardware Team
+  image: "https://www.economist.com/sites/default/files/20180106_BLP512.jpg"
+  description: Incharge of intergrating various physical layer based on project requirements.
+- service_name: Design Team
+  image: "https://zurb-dot-com-prod.s3.amazonaws.com/asset/512/raw_2F4829de3f-bb72-43e8-ab45-f073446ee76b_2Fimage00.png"
+  description: Major focus on UI/UX design and also a mojor focus on industrial design
+- service_name: Automation/Back-end Team
+  image: "https://www.msbiblog.com/wp-content/uploads/2017/07/automation-diagram.png"
+  description: Focus on automating the solutions for some on the most important problems.
 
-#service section
-hardware_description: >
-      "Incharge of intergrating various physical layer based on project requirements."
+service_button : "service-text"
 
-h_name: "Hardware Team"
+#hardware_description:
+#      "Incharge of intergrating various physical layer based on project requirements."
 
-design_description: "Major focus on UI/UX design and also a major focus on industrial design."
+#h_name: "Hardware Team"
 
-d_name: "Design Team"
+#design_description: "Major focus on UI/UX design and also a mojor focus on industrial design."
+#d_name: "Design Team"
 
-backend_description: "Focus on automating the solutions for some on the most important problems."
+#backend_description: "Focus on automating the solutions for some on the most important problems."
 
-b_name: "Automation/Back-end Team"
+#b_name: "Automation/Back-end Team"
 ---

@@ -103,8 +103,8 @@
 
 <!-- services
     ================================================== -->
-    {{ if isset .Params "hardware_description" }}
-    {
+
+{{ if isset .Params "service" }}
       <section id='services' class="s-services">
 
     <div class="row section-header has-bottom-sep" data-aos="fade-up">
@@ -115,52 +115,40 @@
         </div>
     </div> <!-- end section-header-->
 
+
+
     <div class="row services-list block-1-3 block-tab-full">
 
+{{range .Params.service }}
         <div class="col-block service-item" data-aos="fade-up">
             <div class="service-icon">
-                <img src="https://www.economist.com/sites/default/files/20180106_BLP512.jpg" />
+                <img src={{.image}} />
             </div>
-            <div class="service-text">
-                <h3 class="h2">{{.Params.h_name}}</h3>
-                <p> {{.Params.hardware_description}}
-                </p>
-                <a href="http://rocket.techclub.team" class="btn full-width" style="background: black">View website</a>
-            </div>
-        </div>
 
-        <div class="col-block service-item" data-aos="fade-up">
-            <div class="service-icon">
-                <img
-                    src="https://zurb-dot-com-prod.s3.amazonaws.com/asset/512/raw_2F4829de3f-bb72-43e8-ab45-f073446ee76b_2Fimage00.png" />
-            </div>
             <div class="service-text">
-                <h3 class="h2">{{.Params.d_name}}</h3>
-                <p> {{.Params.design_description}}
-                </p>
-            </div>
-        </div>
 
-        <div class="col-block service-item" data-aos="fade-up">
-            <div class="service-icon">
-                <img src="https://www.msbiblog.com/wp-content/uploads/2017/07/automation-diagram.png" />
-            </div>
-            <div class="service-text">
-                <h3 class="h2">{{.Params.b_name}}</h3>
-                <p>
-                  {{.Params.backend_description}}
+                <h3 class="h2">{{.service_name}}</h3>
+                <p> {{.description}}
                 </p>
+
             </div>
+
+
         </div>
+{{end}}
+
+{{ if isset .Params "service_button" }}
+<div id={{.Params.service_button}}  style="display:block;;padding:3px;width:200px; height:100px;">
+<a href="http://rocket.techclub.team" class="btn full-width" style="background: black">View website</a>
+</div>
+{{end}}
 
 
     </div> <!-- end services-list -->
 
 
 </section> <!-- end s-services -->
-}
 {{ end }}
-
 <!-- events
     ================================================== -->
     <section id='blogs' class="s-about" data-parallax="scroll" style="background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('https://c4.wallpaperflare.com/wallpaper/57/715/636/technology-black-background-wallpaper-preview.jpg'); background-repeat: no-repeat;
@@ -188,7 +176,7 @@
 
 <!--index .Params "event_description" -->
 {{ if isset .Params "event_description" }}
-{
+
 <section id='events' class="s-about" data-parallax="scroll" style="background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('https://www.bsr.org/images/heroes/tech-against-trafficking-hero.jpg'); background-repeat: no-repeat;
 background-size: cover;">
     <div class="contact__line" style="background-color:#e8990a"></div>
@@ -213,7 +201,7 @@ background-size: cover;">
   <div class="about__line"></div>
 
 </section> <!-- end s-about-->
-}
+
 {{ end }}
 <!-- contact
     ================================================== -->
