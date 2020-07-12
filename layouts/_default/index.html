@@ -1,89 +1,7 @@
-<!DOCTYPE html>
-<!-- Is the below additional comments required ?? -->
-<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
-
-<!-- Head starts -->
-<head>
-
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title> Hw tech club</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="/stylesheets/base.css">
-    <link rel="stylesheet" href="/stylesheets/vendor.css">
-    <link rel="stylesheet" href="/stylesheets/main.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-
-
-    <!-- script
-    ================================================== -->
-    <script src="/javascripts/modernizr.js"></script>
-    <script src="/javascripts/pace.min.js"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="/images/output-onlinepngtools.png" type="image/x-icon">
-    <link rel="icon" href="/images/output-onlinepngtools.png" type="image/x-icon">
-
-</head>
-<!-- Head ends -->
-
-<body id="top">
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
-
-        <div class="header-logo">
-            <a href="/">
-                <img class="site-logo" src="/images/output-onlinepngtools.png">
-            </a>
-        </div>
-
-        <nav class="header-nav">
-
-            <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
-
-            <div class="header-nav__content">
-                <h3>Navigation</h3>
-
-                <ul class="header-nav__list">
-                    <li class="current"><a class="smoothscroll"  href="/#home" title="home">Home</a></li>
-                    <li><a class="smoothscroll"  href="/#about" title="about">About</a></li>
-                    <li><a class="smoothscroll"  href="/#blogs" title="blogs">Blogs</a></li>
-                    <!--<li><a class="smoothscroll"  href="/#events" title="events">Events</a></li>-->
-                    <li><a class="smoothscroll"  href="/#contact" title="works">Join Us</a></li>
-                </ul>
-
-
-                <!--<ul class="header-nav__social">
-                    <li>
-                        <a href="https://www.instagram.com/hwtechclub/?hl=en"><i class="fa fa-instagram"></i></a>
-                    </li>
-                </ul>-->
-
-            </div> <!-- end header-nav__content -->
-
-        </nav>  <!-- end header-nav -->
-
-        <a class="header-menu-toggle" href="#0">
-            <span class="header-menu-text">Nav</span>
-            <span class="header-menu-icon"></span>
-        </a>
-
-    </header> <!-- end s-header -->
+<!-- Uses the header.html in the partial folder
+    Therfore we dont need to rewrite the header
+    everytime we make new html file -->
+{{ partial "header.html" .}}
 
 <!-- home
     ================================================== -->
@@ -99,13 +17,14 @@
 
         <div class="row home-content__main">
 
-            <h3 class="headgreen">Welcome to HW Tech Club!</h3>
+            <h3 class="headgreen">{{.Title}}</h3>
 
             <div class="middle-header">
                 <div class="main">
                     <h1 class="aqua"></h1>
                     <div class="line"></div>
-                    <p class="headgreen">“The future belongs to those who beleive in the beauty of their dreams”</p>
+
+                    <p class="headgreen">{{.Params.quote}}</p>
                 </div>
             </div>
 
@@ -132,18 +51,14 @@
 
 
     <ul class="home-social">
-        <li>
-            <a href="https://www.instagram.com/hwtechclub/?hl=en"><i class="fa fa-instagram"
-                    aria-hidden="true"></i><span>Instagram</span></a>
-        </li>
-        <li>
-            <a href="https://github.com/HwTechClub"><i class="fa fa-github"
-                    aria-hidden="true"></i><span>github</span></a>
-        </li>
-        <li>
-            <a href="https://linkedin.com/company/hw-tech-club"><i class="fa fa-linkedin"
-                    aria-hidden="true"></i><span>Linkedin</span></a>
-        </li>
+     <!-- Creates the social links  -->
+     <!-- Uses the "social_links" variable to create the icons -->
+        {{ range .Params.social_links }}
+            <li>
+                <a href="{{.link}}"><i class="fa fa-{{lower .name}}"
+                        aria-hidden="true"></i><span>{{.name}}</span></a>
+            </li>
+        {{end}}
     </ul>
     <!-- end home-social -->
 
@@ -156,40 +71,29 @@
 
     <div class="row section-header has-bottom-sep" data-aos="fade-up">
         <div class="col-full">
-            <h1 class="display-1 display-1--light">Welcome to <br> HW Tech Club Website</h1>
+            <!-- Uses the about_title variable from the /content/_index.md.
+                safeHTML allows the variable to include html tags
+             -->
+            <h1 class="display-1 display-1--light">{{ with .Params.about_title }}{{ . | safeHTML }}{{ end }}</h1>
         </div>
     </div> <!-- end section-header -->
 
     <div class="row about-desc" data-aos="fade-up">
         <div class="col-full">
             <p>
-                "There is an art to science and science in art; the two are not
-                enemies. but different aspects of the whole." Issac Asimov.We focus on creating
-                innovative ideas/products.
+                {{ .Params.about_description}}
             </p>
         </div>
     </div> <!-- end about-desc -->
 
     <div class="row about-stats stats block-1-4 block-m-1-2 block-mob-full" data-aos="fade-up">
-
-        <div class="col-block stats__col ">
-            <div class="stats__count">107</div>
-            <h5>Members</h5>
-        </div>
-        <div class="col-block stats__col">
-            <div class="stats__count">25</div>
-            <h5>Covid-19 Volunteers</h5>
-        </div>
-        <div class="col-block stats__col">
-            <div class="stats__count">2</div>
-            <h5>Projects underway</h5>
-        </div>
-
-        <div class="col-block stats__col">
-            <div class="stats__count">10</div>
-            <h5>Insane people</h5>
-        </div>
-
+        <!-- Creates the stats to display -->
+        {{ range .Params.stats }}
+            <div class="col-block stats__col ">
+                <div class="stats__count">{{.number}}</div>
+                <h5>{{.name}}</h5>
+            </div>
+        {{end}}
     </div> <!-- end about-stats -->
 
     <div class="about__line"></div>
@@ -199,7 +103,9 @@
 
 <!-- services
     ================================================== -->
-<!--<section id='services' class="s-services">
+
+{{ if isset .Params "service" }}
+      <section id='services' class="s-services">
 
     <div class="row section-header has-bottom-sep" data-aos="fade-up">
         <div class="col-full">
@@ -207,52 +113,34 @@
             <h1 class="display-2">Insane is good
             </h1>
         </div>
-    </div> <!-- end section-header
+    </div> <!-- end section-header-->
+
+
 
     <div class="row services-list block-1-3 block-tab-full">
 
+    {{range .Params.service }}
         <div class="col-block service-item" data-aos="fade-up">
             <div class="service-icon">
-                <img src="https://www.economist.com/sites/default/files/20180106_BLP512.jpg" />
+                <img src={{.image}} />
             </div>
-            <div class="service-text">
-                <h3 class="h2">Hardware Team</h3>
-                <p> Incharge of intergrating various physical layer based on project requirements.
-                </p>
-                <!--<a href="http://rocket.techclub.team" class="btn full-width" style="background: black">View website</a>
-            </div>
-        </div>
 
-        <div class="col-block service-item" data-aos="fade-up">
-            <div class="service-icon">
-                <img
-                    src="https://zurb-dot-com-prod.s3.amazonaws.com/asset/512/raw_2F4829de3f-bb72-43e8-ab45-f073446ee76b_2Fimage00.png" />
-            </div>
             <div class="service-text">
-                <h3 class="h2">Design Team</h3>
-                <p>Major focus on UI/UX design and also a mojor focus on industrial design.
-                </p>
+                <h3 class="h2">{{.name}}</h3>
+                <p> {{.description}}</p>
+                {{ if isset . "button_text" }}
+                    <a href="{{.button_link}}" class="btn full-width" style="border: 2px solid black">{{.button_text}}</a>
+                {{end}}
             </div>
-        </div>
 
-        <div class="col-block service-item" data-aos="fade-up">
-            <div class="service-icon">
-                <img src="https://www.msbiblog.com/wp-content/uploads/2017/07/automation-diagram.png" />
-            </div>
-            <div class="service-text">
-                <h3 class="h2">Automation/Back-end Team</h3>
-                <p>Focus on automating the solutions for some on the most important problems.
-                </p>
-            </div>
         </div>
-
+    {{end}}
 
     </div> <!-- end services-list -->
 
+
 </section> <!-- end s-services -->
-
-
-
+{{ end }}
 <!-- events
     ================================================== -->
     <section id='blogs' class="s-about" data-parallax="scroll" style="background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('https://c4.wallpaperflare.com/wallpaper/57/715/636/technology-black-background-wallpaper-preview.jpg'); background-repeat: no-repeat;
@@ -266,7 +154,7 @@
         <div class="row about-desc" data-aos="fade-up">
             <div class="col-full">
                 <p>
-                    The blogs is our simple way to say express yourself and what you feel about a certain concept.
+                    {{ .Params.blog_description}}
                 </p>
                 <a href="https://blog.hwtech.club" class="btn " style="background: black; color: #e8990a;border-top-color: #e8990a;border-right-color: rgb(197, 197, 197);border-bottom-color: #e8990a;border-left-color: rgb(197, 197, 197);"> View Blogs </a>
             </div>
@@ -274,33 +162,39 @@
 
         <div class="about__line"></div>
 
-    </section> <!-- end s-about -->
-<!--<section id='events' class="s-about" data-parallax="scroll" style="background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('https://www.bsr.org/images/heroes/tech-against-trafficking-hero.jpg'); background-repeat: no-repeat;
+    </section>
+
+ <!-- end s-about -->
+
+<!--index .Params "event_description" -->
+{{ if isset .Params "event_description" }}
+
+<section id='events' class="s-about" data-parallax="scroll" style="background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('https://www.bsr.org/images/heroes/tech-against-trafficking-hero.jpg'); background-repeat: no-repeat;
 background-size: cover;">
     <div class="contact__line" style="background-color:#e8990a"></div>
     <div class="row section-header has-bottom-sep" data-aos="fade-up">
         <div class="col-full">
             <h1 class="display-1 display-1--light">Events <br> </h1>
         </div>
-    </div> <!-- end section-header
+    </div> <!-- end section-header-->
 
     <div class="row about-desc" data-aos="fade-up">
         <div class="col-full">
             <p>
-                Stay in touch with events from Tech Club , MACS (Mathematics and Computer Sciences)
+                {{.Params.event_description}}
             </p>
             <a href="/events" class="btn " style="background:black; color:#04a8fa;border-top-color: #0087cc; border-right-color: rgb(197, 197, 197);
             border-bottom-color: #0087cc;
             border-left-color: rgb(197, 197, 197);"> View Events </a>
         </div>
-    </div> <!-- end about-desc
+    </div> <!-- end about-desc-->
 
 
-    <div class="about__line"></div>
+  <div class="about__line"></div>
 
-</section> <!-- end s-about -->
+</section> <!-- end s-about-->
 
-
+{{ end }}
 <!-- contact
     ================================================== -->
 <section id="contact" class="s-contact">
@@ -509,15 +403,4 @@ background-size: cover;">
 </div>
 
 <!-- Footer starts -->
-<!-- <footer>
-    Footer here
-</footer> -->
-<!-- Footer ends -->
-<!-- Java Script
-================================================== -->
-<script src="/javascripts/jquery-3.2.1.min.js"></script>
-<script src="/javascripts/plugins.js"></script>
-<script src="/javascripts/main.js"></script>
-
-</body>
-</html>
+{{ partial "footer" .}}
