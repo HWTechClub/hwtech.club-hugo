@@ -8,7 +8,7 @@
 <section id="home" class="s-home target-section" data-parallax="scroll" data-natural-width=3000 data-natural-height=2000
     data-position-y=center>
     <video autoplay muted loop id="myVideo">
-        <source src="/images/pjct_07.mp4" type="video/mp4">
+        <source src="/images/pjct_07.webm" type="video/mp4">
     </video>
     <div class="overlay"></div>
     <div class="shadow-overlay"></div>
@@ -120,6 +120,7 @@
     <div class="row services-list block-1-3 block-tab-full">
 
     {{range .Params.service }}
+
         <div class="col-block service-item" data-aos="fade-up">
             <div class="service-icon">
                 <img src={{.image}} />
@@ -143,7 +144,9 @@
 {{ end }}
 <!-- events
     ================================================== -->
-    <section id='blogs' class="s-about" data-parallax="scroll" style="background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('https://c4.wallpaperflare.com/wallpaper/57/715/636/technology-black-background-wallpaper-preview.jpg'); background-repeat: no-repeat;
+    <section id='blogs' class="s-about" data-parallax="scroll"
+                               style="background: linear-gradient( rgba(0, 0,
+                               0, 0.7), rgba(0, 0, 0, 0.7) ),url('/images/technology-black-background-wallpaper-preview.jpg'); background-repeat: no-repeat;
     background-size: cover;">
         <div class="row section-header has-bottom-sep" data-aos="fade-up">
             <div class="col-full">
@@ -169,7 +172,9 @@
 <!--index .Params "event_description" -->
 {{ if isset .Params "event_description" }}
 
-<section id='events' class="s-about" data-parallax="scroll" style="background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('https://www.bsr.org/images/heroes/tech-against-trafficking-hero.jpg'); background-repeat: no-repeat;
+<section id='events' class="s-about" data-parallax="scroll" style="background:
+                            linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0,
+                            0.7) ),url('/images/tech-against-trafficking-hero.jpg'); background-repeat: no-repeat;
 background-size: cover;">
     <div class="contact__line" style="background-color:#e8990a"></div>
     <div class="row section-header has-bottom-sep" data-aos="fade-up">
