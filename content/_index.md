@@ -38,9 +38,7 @@ social_links:
 #about-section
 about_title: Welcome to <br> HW Tech Club Website
 about_description: >
-    "There is an art to science and science in art; the two are not
-    enemies. but different aspects of the whole." Issac Asimov. We focus on creating
-    innovative ideas/products.
+    We are bunch of very well behaved humans who want educate the poor souls implementing shitty (ahem…) exciting technologies.
 
 #These are the stats gets displayed on the website
 stats:
